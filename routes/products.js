@@ -48,7 +48,7 @@ router.get("/find/:id", async (req, res) => {
     const product = await Products.findById(req.params.id);
     res.status(200).json(product);
   } catch (error) {
-    res.status(200).json(error);
+    res.status(500).json(error);
   }
 });
 
@@ -72,7 +72,7 @@ router.get("/", async (req, res) => {
     }
     res.status(200).json(products);
   } catch (error) {
-    res.status(200).json(error);
+    res.status(500).json(error);
   }
 });
 
