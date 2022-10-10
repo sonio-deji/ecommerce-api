@@ -5,7 +5,6 @@ const userSchema = new mongoose.Schema(
     firstName: {
       type: String,
       required: [true, "must provide name, name cannot be empty"],
-      unique: false,
     },
     lastName: {
       type: String,
