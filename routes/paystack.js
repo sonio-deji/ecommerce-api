@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const paystack = require("../models/paystack");
+const { verifyTokenAndAuthorization } = require("./verifyToken");
 
-router.post("/payment", async (req, res) => {
+router.post("/payment", verifyTokenAndAuthorization, async (req, res) => {
   const newPayment = new paystack(req.body);
   try {
     const savedPayment = await newPayment.save();
